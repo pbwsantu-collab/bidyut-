@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Bidyut</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Library specific styles */
+        .library-hero {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .library-hero h1 { font-size: 40px; }
+        .library-hero p { color: #ccc; font-size: 18px; }
+
+        .search-box {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 14px 30px;
+            background: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .pdf-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .pdf-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .pdf-card .subject {
+            color: #e94560;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .pdf-card h3 {
+            margin: 10px 0;
+            color: #1a1a2e;
+        }
+
+        .pdf-card .chapter {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .pdf-card .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .pdf-card .actions a {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .pdf-card .actions .view-btn {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .pdf-card .actions .download-btn {
+            background: #e94560;
+            color: #fff;
+        }
+
+        .pdf-card .actions a:hover {
+            transform: scale(1.05);
+        }
+
+        .filter-bar {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-bar select {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 14px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+            .library-hero h1 { font-size: 28px; }
+            .search-box { flex-direction: column; }
+            .pdf-grid { grid-template-columns: 1fr; }
+            .filter-bar { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">📚 Bidyut</a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html" class="active">Library</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
+
+<!-- ===== LIBRARY HERO ===== -->
+<section class="library-hero">
+    <h1>📚 Digital Library</h1>
+    <p>Browse PDFs by Class, Subject, and Chapter — Download or View Online</p>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by class, subject, or chapter..." onkeyup="filterPDFs()">
+        <button onclick="filterPDFs()">🔍 Search</button>
+    </div>
+</section>
+
+<!-- ===== FILTER BAR ===== -->
+<div class="filter-bar">
+    <select id="classFilter" onchange="filterPDFs()">
+        <option value="all">All Classes</option>
+        <option value="5">Class V</option>
+        <option value="6">Class VI</option>
+        <option value="7">Class VII</option>
+        <option value="8">Class VIII</option>
+        <option value="9">Class IX</option>
+        <option value="10">Class X</option>
+        <option value="11">Class XI</option>
+        <option value="12">Class XII</option>
+    </select>
+    <select id="subjectFilter" onchange="filterPDFs()">
+        <option value="all">All Subjects</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Science">Science</option>
+        <option value="English">English</option>
+        <option value="Social Studies">Social Studies</option>
+        <option value="Computer">Computer</option>
+    </select>
+</div>
+
+<!-- ===== PDF GRID ===== -->
+<div class="pdf-grid" id="pdfGrid">
+    <!-- PDFs will be inserted by JavaScript -->
+</div>
+
+<script>
+// ===== PDF DATA =====
+const pdfData = [
+    { class: 5, subject: 'Mathematics', chapter: 'Chapter 1: Numbers', title: 'Number System', file: 'maths_class5_ch1.pdf' },
+    { class: 5, subject: 'Science', chapter: 'Chapter 1: Plants', title: 'Plant Kingdom', file: 'science_class5_ch1.pdf' },
+    { class: 6, subject: 'Mathematics', chapter: 'Chapter 2: Fractions', title: 'Fractions & Decimals', file: 'maths_class6_ch2.pdf' },
+    { class: 6, subject: 'English', chapter: 'Chapter 1: Grammar', title: 'Parts of Speech', file: 'english_class6_ch1.pdf' },
+    { class: 7, subject: 'Science', chapter: 'Chapter 3: Heat', title: 'Heat & Temperature', file: 'science_class7_ch3.pdf' },
+    { class: 7, subject: 'Social Studies', chapter: 'Chapter 1: History', title: 'Ancient Civilizations', file: 'ss_class7_ch1.pdf' },
+    { class: 8, subject: 'Mathematics', chapter: 'Chapter 4: Algebra', title: 'Algebraic Expressions', file: 'maths_class8_ch4.pdf' },
+    { class: 8, subject: 'Computer', chapter: 'Chapter 1: Basics', title: 'Introduction to Computers', file: 'computer_class8_ch1.pdf' },
+    { class: 9, subject: 'Science', chapter: 'Chapter 5: Motion', title: 'Laws of Motion', file: 'science_class9_ch5.pdf' },
+    { class: 9, subject: 'Mathematics', chapter: 'Chapter 6: Geometry', title: 'Coordinate Geometry', file: 'maths_class9_ch6.pdf' },
+    { class: 10, subject: 'Science', chapter: 'Chapter 7: Electricity', title: 'Electricity & Circuits', file: 'science_class10_ch7.pdf' },
+    { class: 10, subject: 'English', chapter: 'Chapter 3: Writing', title: 'Essay Writing Skills', file: 'english_class10_ch3.pdf' },
+    { class: 11, subject: 'Mathematics', chapter: 'Chapter 8: Calculus', title: 'Limits & Derivatives', file: 'maths_class11_ch8.pdf' },
+    { class: 11, subject: 'Science', chapter: 'Chapter 9: Chemistry', title: 'Chemical Bonding', file: 'science_class11_ch9.pdf' },
+    { class: 12, subject: 'Mathematics', chapter: 'Chapter 10: Integration', title: 'Integral Calculus', file: 'maths_class12_ch10.pdf' },
+    { class: 12, subject: 'Science', chapter: 'Chapter 11: Physics', title: 'Wave Optics', file: 'science_class12_ch11.pdf' }
+];
+
+// ===== RENDER PDFs =====
+function renderPDFs(data) {
+    const grid = document.getElementById('pdfGrid');
+    if (data.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:50px;">📭 No PDFs found. Try adjusting your filters.</p>';
+        return;
+    }
+    grid.innerHTML = data.map(pdf => `
+        <div class="pdf-card fade-in">
+            <div class="subject">Class ${pdf.class} • ${pdf.subject}</div>
+            <h3>${pdf.title}</h3>
+            <div class="chapter">${pdf.chapter}</div>
+            <div class="actions">
+                <a href="#" class="view-btn" onclick="alert('📄 Opening ${pdf.file}')">👁️ View</a>
+                <a href="#" class="download-btn" onclick="alert('⬇️ Downloading ${pdf.file}')">⬇️ Download</a>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ===== FILTER FUNCTION =====
+function filterPDFs() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const classFilter = document.getElementById('classFilter').value;
+    const subjectFilter = document.getElementById('subjectFilter').value;
+
+    const filtered = pdfData.filter(pdf => {
+        const matchSearch = pdf.title.toLowerCase().includes(search) ||
+                           pdf.subject.toLowerCase().includes(search) ||
+                           pdf.chapter.toLowerCase().includes(search);
+        const matchClass = classFilter === 'all' || pdf.class === parseInt(classFilter);
+        const matchSubject = subjectFilter === 'all' || pdf.subject === subjectFilter;
+        return matchSearch && matchClass && matchSubject;
+    });
+
+    renderPDFs(filtered);
+}
+
+// ===== INITIAL LOAD =====
+document.addEventListener('DOMContentLoaded', () => {
+    renderPDFs(pdfData);
+});
+
+// Mobile menu toggle
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+</script>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📚 Bidyut</h3>
+            <p>Empowering students with free digital education resources for Classes V–XII.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="library.html">Library</a>
+            <a href="videos.html">Videos</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <a href="#">📧 Email</a>
+            <a href="#">📱 Instagram</a>
+            <a href="#">▶️ YouTube</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bidyut. Built with ❤️ on GitHub Pages.</p>
+    </div>
+</footer>
+
+</body>
+</html>
