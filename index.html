@@ -24,6 +24,10 @@
             color: #24292e;
             margin-top: 30px;
         }
+        h3 {
+            color: #24292e;
+            margin-top: 20px;
+        }
         ul {
             padding-left: 20px;
         }
@@ -37,39 +41,50 @@
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
-        /* New style for banner */
-        .banner {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        /* New style for icon */
         .icon {
             width: 40px;
             vertical-align: middle;
             margin-right: 10px;
         }
-        /* New style for divider */
-        .divider {
+        table {
             width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        hr {
+            border: 2px solid #24292e;
+            border-radius: 5px;
             margin: 30px 0;
+        }
+        .banner {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         
-        <!-- ====== 1. BANNER (Added at the very top) ====== -->
-        <img src="https://via.placeholder.com/800x200/24292e/ffffff?text=Welcome+to+My+Site" alt="Banner" class="banner">
+        <!-- BANNER -->
+        <img src="https://i.imgur.com/4M6T8tX.png" alt="Banner" class="banner">
         
-        <!-- ====== 2. ICON (Added before the title) ====== -->
+        <!-- ICON + TITLE -->
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub Icon" class="icon">
         <h1>🚀 Welcome to My First Website!</h1>
         
         <p>I built this using <strong>GitHub Pages</strong> on my Android phone.</p>
         
-        <!-- ====== 3. DIVIDER (Added between sections) ====== -->
-        <img src="https://cdn.pixabay.com/photo/2016/03/31/18/36/divider-1294812_960_720.png" alt="Divider" class="divider">
+        <!-- DIVIDER 1 -->
+        <hr>
         
         <h2>📚 What I've learned so far:</h2>
         <ul>
@@ -80,16 +95,16 @@
             <li>✅ How to edit HTML on my phone</li>
         </ul>
         
-        <!-- ====== DIVIDER 2 ====== -->
-        <img src="https://cdn.pixabay.com/photo/2016/03/31/18/36/divider-1294812_960_720.png" alt="Divider" class="divider">
+        <!-- DIVIDER 2 -->
+        <hr>
         
         <h2>📅 About This Site</h2>
         <p><strong>Created:</strong> July 10, 2026</p>
         <p><strong>Author:</strong> pbwsantu-collab</p>
         <p><strong>Built with:</strong> GitHub Pages + HTML + CSS</p>
         
-        <!-- ====== DIVIDER 3 ====== -->
-        <img src="https://cdn.pixabay.com/photo/2016/03/31/18/36/divider-1294812_960_720.png" alt="Divider" class="divider">
+        <!-- DIVIDER 3 -->
+        <hr>
         
         <div class="footer">
             <h2>🌟 Fun Facts & Media</h2>
@@ -101,24 +116,28 @@
             <a href="https://github.com" target="_blank">Click here to visit GitHub</a></p>
 
             <h3>📊 My Learning Progress</h3>
-            <table style="width:100%; border-collapse: collapse;">
-                <tr style="background:#f0f0f0;">
-                    <th style="border:1px solid #ddd; padding:8px;">Skill</th>
-                    <th style="border:1px solid #ddd; padding:8px;">Status</th>
+            <table>
+                <tr>
+                    <th>Skill</th>
+                    <th>Status</th>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #ddd; padding:8px;">GitHub Basics</td>
-                    <td style="border:1px solid #ddd; padding:8px;">✅ Completed</td>
+                    <td>GitHub Basics</td>
+                    <td>✅ Completed</td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #ddd; padding:8px;">HTML</td>
-                    <td style="border:1px solid #ddd; padding:8px;">🚀 Learning</td>
+                    <td>HTML</td>
+                    <td>🚀 Learning</td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #ddd; padding:8px;">CSS</td>
-                    <td style="border:1px solid #ddd; padding:8px;">⏳ Next Step</td>
+                    <td>CSS</td>
+                    <td>⏳ Next Step</td>
                 </tr>
             </table>
+            
+            <p style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                Thanks for visiting! 🎉
+            </p>
         </div>
     </div>
 </body>
