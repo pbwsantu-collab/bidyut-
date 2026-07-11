@@ -1,144 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f0f0f0;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 { 
-            color: #24292e;
-            text-align: center;
-        }
-        h2 {
-            color: #24292e;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #24292e;
-            margin-top: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin: 10px 0;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #888;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        .icon {
-            width: 40px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background: #f0f0f0;
-        }
-        hr {
-            border: 2px solid #24292e;
-            border-radius: 5px;
-            margin: 30px 0;
-        }
-        .banner {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidyut - Educational Platform</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        
-        <!-- BANNER -->
-        <img src="https://i.imgur.com/4M6T8tX.png" alt="Banner" class="banner">
-        
-        <!-- ICON + TITLE -->
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub Icon" class="icon">
-        <h1>🚀 Welcome to My First Website!</h1>
-        
-        <p>I built this using <strong>GitHub Pages</strong> on my Android phone.</p>
-        
-        <!-- DIVIDER 1 -->
-        <hr>
-        
-        <h2>📚 What I've learned so far:</h2>
-        <ul>
-            <li>✅ How to create a repository</li>
-            <li>✅ How to upload files from my phone</li>
-            <li>✅ How to edit files on GitHub</li>
-            <li>✅ How to create a live website</li>
-            <li>✅ How to edit HTML on my phone</li>
-        </ul>
-        
-        <!-- DIVIDER 2 -->
-        <hr>
-        
-        <h2>📅 About This Site</h2>
-        <p><strong>Created:</strong> July 10, 2026</p>
-        <p><strong>Author:</strong> pbwsantu-collab</p>
-        <p><strong>Built with:</strong> GitHub Pages + HTML + CSS</p>
-        
-        <!-- DIVIDER 3 -->
-        <hr>
-        
-        <div class="footer">
-            <h2>🌟 Fun Facts & Media</h2>
-            
-            <p><strong>My GitHub Profile Picture:</strong></p>
-            <img src="20251210_194008318.jpg" alt="My Profile Photo" style="width:100px; border-radius:50%; border: 2px solid #24292e;">
-            
-            <p><strong>My Favorite Website:</strong><br>
-            <a href="https://github.com" target="_blank">Click here to visit GitHub</a></p>
 
-            <h3>📊 My Learning Progress</h3>
-            <table>
-                <tr>
-                    <th>Skill</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>GitHub Basics</td>
-                    <td>✅ Completed</td>
-                </tr>
-                <tr>
-                    <td>HTML</td>
-                    <td>🚀 Learning</td>
-                </tr>
-                <tr>
-                    <td>CSS</td>
-                    <td>⏳ Next Step</td>
-                </tr>
-            </table>
-            
-            <p style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-                Thanks for visiting! 🎉
-            </p>
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">📚 Bidyut</a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>📖 Welcome to <span>Bidyut</span></h1>
+        <p>Your complete digital learning platform for Class V–XII. Access PDFs, videos, and study materials anytime, anywhere.</p>
+        <div class="hero-buttons">
+            <a href="library.html" class="btn-primary">📚 Explore Library</a>
+            <a href="videos.html" class="btn-secondary">🎥 Watch Videos</a>
         </div>
     </div>
+</section>
+
+<!-- ===== FEATURES SECTION ===== -->
+<section class="features">
+    <div class="section-title">
+        <h2>✨ Why Choose Bidyut?</h2>
+        <p>Everything you need to succeed in one place</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Digital Library</h3>
+            <p>Access PDFs for Class V–XII. Download or view online.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎥</div>
+            <h3>Video Library</h3>
+            <p>Curated YouTube tutorials for every subject and chapter.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Smart Search</h3>
+            <p>Find exactly what you need by class, subject, or chapter.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile First</h3>
+            <p>Beautiful experience on any device — phone, tablet, or desktop.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast & Light</h3>
+            <p>Optimized for quick loading, even on slow connections.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Beautiful Design</h3>
+            <p>Modern animations and premium look that inspires learning.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STATS SECTION ===== -->
+<section class="stats">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">PDF Resources</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">200+</span>
+            <span class="stat-label">Video Tutorials</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">10K+</span>
+            <span class="stat-label">Students Helped</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CLASSES SECTION ===== -->
+<section class="classes">
+    <div class="section-title">
+        <h2>📚 Classes V–XII</h2>
+        <p>Select your class to explore resources</p>
+    </div>
+    <div class="class-grid">
+        <a href="library.html?class=5" class="class-card">Class V</a>
+        <a href="library.html?class=6" class="class-card">Class VI</a>
+        <a href="library.html?class=7" class="class-card">Class VII</a>
+        <a href="library.html?class=8" class="class-card">Class VIII</a>
+        <a href="library.html?class=9" class="class-card">Class IX</a>
+        <a href="library.html?class=10" class="class-card">Class X</a>
+        <a href="library.html?class=11" class="class-card">Class XI</a>
+        <a href="library.html?class=12" class="class-card">Class XII</a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📚 Bidyut</h3>
+            <p>Empowering students with free digital education resources for Classes V–XII.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="library.html">Library</a>
+            <a href="videos.html">Videos</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <a href="#">📧 Email</a>
+            <a href="#">📱 Instagram</a>
+            <a href="#">▶️ YouTube</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bidyut. Built with ❤️ on GitHub Pages.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
