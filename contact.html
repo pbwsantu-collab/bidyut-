@@ -1,51 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bidyut</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .contact-hero h1 { font-size: 40px; }
+        .contact-hero p { color: #ccc; font-size: 18px; }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        .contact-info .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info .info-item .icon {
+            font-size: 24px;
+            min-width: 30px;
+        }
+        .contact-info .info-item .text { 
+            color: #333;
+            flex: 1;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h3 {
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #e94560;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(45deg, #e94560, #ff6b6b);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .contact-hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">📚 Bidyut</a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
+
+<!-- ===== CONTACT HERO ===== -->
+<section class="contact-hero">
+    <h1>📞 Contact Us</h1>
+    <p>Have questions? We'd love to hear from you!</p>
+</section>
+
 <!-- ===== CONTACT SECTION ===== -->
 <div class="contact-container">
+    
+    <!-- ===== CONTACT INFO (FULLY FUNCTIONAL) ===== -->
     <div class="contact-info">
         <h3>📬 Get in Touch</h3>
         
+        <!-- ===== EMAIL (Functional) ===== -->
         <div class="info-item">
             <span class="icon">📧</span>
-            <span class="text">pbswantu@gmail.com</span>
-        </div>
-        
-        <div class="info-item">
-            <span class="icon">📱</span>
-            <span class="text">8926413296</span>
-        </div>
-        
-        <div class="info-item">
-            <span class="icon">💬</span>
             <span class="text">
-                <a href="https://wa.me/918926413296" target="_blank" style="color:#25D366; text-decoration:none; font-weight:bold;">
-                    📲 Chat on WhatsApp
+                <a href="mailto:pbswantu@gmail.com" 
+                   style="color:#e94560; text-decoration:none; font-weight:500; font-size:16px;">
+                    pbswantu@gmail.com
                 </a>
+                <span style="font-size:12px; color:#888; display:block; margin-top:2px;">
+                    📧 Tap to send email
+                </span>
             </span>
         </div>
         
+        <!-- ===== PHONE (Functional) ===== -->
+        <div class="info-item">
+            <span class="icon">📱</span>
+            <span class="text">
+                <a href="tel:+918926413296" 
+                   style="color:#e94560; text-decoration:none; font-weight:500; font-size:16px;">
+                    8926413296
+                </a>
+                <span style="font-size:12px; color:#888; display:block; margin-top:2px;">
+                    📞 Tap to call
+                </span>
+            </span>
+        </div>
+        
+        <!-- ===== WHATSAPP (Functional) ===== -->
+        <div class="info-item">
+            <span class="icon">💬</span>
+            <span class="text">
+                <a href="https://wa.me/918926413296" target="_blank" 
+                   style="color:#25D366; text-decoration:none; font-weight:bold; font-size:16px;">
+                    📲 Chat on WhatsApp
+                </a>
+                <span style="font-size:12px; color:#888; display:block; margin-top:2px;">
+                    💬 Tap to message instantly
+                </span>
+            </span>
+        </div>
+        
+        <!-- ===== LOCATION ===== -->
         <div class="info-item">
             <span class="icon">📍</span>
-            <span class="text">India</span>
+            <span class="text" style="font-size:16px;">India</span>
         </div>
         
+        <!-- ===== QUICK RESPONSE TIP ===== -->
         <div style="margin-top:25px; padding:15px; background:#f0f8ff; border-radius:10px; border-left:4px solid #25D366;">
-            <p style="margin:0; color:#666; font-size:14px;">
-                💬 <strong>WhatsApp:</strong> Tap the WhatsApp link above to chat instantly!
+            <p style="margin:0 0 8px 0; color:#666; font-size:14px; font-weight:bold;">
+                💡 Quick Contact:
             </p>
-            <p style="margin:5px 0 0; color:#666; font-size:14px;">
-                📧 <strong>Email:</strong> We usually respond within 24 hours.
+            <p style="margin:0; color:#666; font-size:13px; line-height:1.8;">
+                📧 Tap email → Send a message<br>
+                📞 Tap phone → Call directly<br>
+                💬 Tap WhatsApp → Chat instantly
             </p>
         </div>
         
-        <p style="margin-top:20px; color:#666; font-size:14px;">
-            ⏰ Response Time: 1-24 hours
+        <!-- ===== RESPONSE TIME ===== -->
+        <p style="margin-top:20px; color:#888; font-size:13px; text-align:center; border-top:1px solid #eee; padding-top:15px;">
+            ⏰ We respond within 1-24 hours
         </p>
     </div>
 
+    <!-- ===== CONTACT FORM ===== -->
     <div class="contact-form">
         <h3>✉️ Send a Message</h3>
         <form id="contactForm" onsubmit="submitForm(event)">
             <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email (e.g., pbswantu@gmail.com)" required>
+            <input type="email" placeholder="Your Email" required>
             <input type="text" placeholder="Subject (e.g., Class X Maths)">
             <textarea placeholder="Your Message..." required></textarea>
             <button type="submit">📤 Send Message</button>
@@ -55,3 +224,46 @@
         </div>
     </div>
 </div>
+
+<script>
+function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('formResponse').style.display = 'block';
+    document.getElementById('contactForm').reset();
+    setTimeout(() => {
+        document.getElementById('formResponse').style.display = 'none';
+    }, 5000);
+}
+
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+</script>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📚 Bidyut</h3>
+            <p>Empowering students with free digital education resources for Classes V–XII.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="library.html">Library</a>
+            <a href="videos.html">Videos</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <a href="mailto:pbswantu@gmail.com">📧 Email</a>
+            <a href="https://wa.me/918926413296" target="_blank">💬 WhatsApp</a>
+            <a href="https://youtube.com/playlist?list=PLuwU5PKxbLJrsdSoRtqaa864sbwbZUMFp" target="_blank">▶️ YouTube</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bidyut. Built with ❤️ on GitHub Pages.</p>
+    </div>
+</footer>
+
+</body>
+</html>
