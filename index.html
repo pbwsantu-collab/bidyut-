@@ -3,8 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bidyut - Learn English</title>
+    <title>Bidyut - Master English Grammar</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Compact layout overrides */
+        .hero {
+            padding: 40px 20px 20px;
+            min-height: auto;
+        }
+        .hero-content {
+            max-width: 700px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .benefit-item {
+            background: #fff;
+            padding: 15px 10px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+        }
+        .benefit-item .icon { font-size: 28px; display: block; margin-bottom: 5px; }
+        .benefit-item .label { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+        .benefit-item .desc { font-size: 12px; color: #888; margin: 0; }
+        .cta-section {
+            text-align: center;
+            padding: 20px 20px 30px;
+        }
+        .btn-killer {
+            display: inline-block;
+            padding: 16px 60px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(45deg, #e94560, #ff6b6b);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(233, 69, 96, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-killer:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(233, 69, 96, 0.6);
+        }
+
+        /* ===== BLINKING SHARE LINK ===== */
+        .share-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .share-link {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #1a1a2e;
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+            animation: blinkPulse 2s infinite;
+        }
+        .share-link:hover {
+            background: #0f3460;
+        }
+        .share-link .icon {
+            margin-right: 8px;
+        }
+        .share-feedback {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #25D366;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .share-feedback.show {
+            opacity: 1;
+        }
+
+        @keyframes blinkPulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.02); box-shadow: 0 0 20px rgba(233, 69, 96, 0.3); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Hide old sections we don't need */
+        .features, .stats, .classes, .grammar-featured, [style*="YouTube"], .youtube-section {
+            display: none !important;
+        }
+        /* Keep footer clean */
+        .footer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,81 +129,63 @@
     </div>
 </nav>
 
-<!-- ===== CONCISE HERO ===== -->
-<section class="hero" style="padding:50px 20px;">
+<!-- ===== KILLER HERO ===== -->
+<section class="hero">
     <div class="hero-content">
-        <h1>📖 Welcome to <span>Bidyut</span></h1>
-        <p style="font-size:18px;">Learn English Grammar & More — Free for Classes V–XII.</p>
-        <div class="hero-buttons">
-            <a href="library.html" class="btn-primary">📚 Library</a>
-            <a href="videos.html" class="btn-secondary">🎥 Videos</a>
-            <a href="contact.html" class="btn-secondary" style="border-color:#e94560; color:#e94560;">📞 Contact</a>
-        </div>
+        <h1>Master English Grammar & Ace Your Exams — <span>Free.</span></h1>
+        <p style="font-size: 1.2rem; color: #555; margin-bottom: 10px;">Class V–XII study materials, video playlists, and PDFs—all in one place.</p>
     </div>
 </section>
 
-<!-- ===== QUICK FEATURES (4 ICON CARDS) ===== -->
-<section style="padding:30px 20px; max-width:1000px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:15px; text-align:center;">
-        <div style="background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
-            <span style="font-size:28px;">📚</span>
-            <p style="margin:5px 0 0; font-size:13px; font-weight:bold;">PDF Library</p>
-        </div>
-        <div style="background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
-            <span style="font-size:28px;">🎥</span>
-            <p style="margin:5px 0 0; font-size:13px; font-weight:bold;">Video Tutorials</p>
-        </div>
-        <div style="background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
-            <span style="font-size:28px;">🔍</span>
-            <p style="margin:5px 0 0; font-size:13px; font-weight:bold;">Smart Search</p>
-        </div>
-        <div style="background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
-            <span style="font-size:28px;">📱</span>
-            <p style="margin:5px 0 0; font-size:13px; font-weight:bold;">Mobile First</p>
-        </div>
+<!-- ===== BULLET POINTS OF VALUE ===== -->
+<div class="benefits-grid">
+    <div class="benefit-item">
+        <span class="icon">📚</span>
+        <div class="label">Class V–XII Curriculum</div>
+        <p class="desc">Organized by your grade</p>
     </div>
-</section>
+    <div class="benefit-item">
+        <span class="icon">🎥</span>
+        <div class="label">Watch & Learn</div>
+        <p class="desc">Grammar video playlists</p>
+    </div>
+    <div class="benefit-item">
+        <span class="icon">📄</span>
+        <div class="label">Instant PDF Access</div>
+        <p class="desc">Download in one tap</p>
+    </div>
+    <div class="benefit-item">
+        <span class="icon">📱</span>
+        <div class="label">Study Anywhere</div>
+        <p class="desc">Mobile-friendly design</p>
+    </div>
+</div>
 
-<!-- ===== STATS (Compact) ===== -->
-<section style="background:linear-gradient(135deg, #e94560, #ff6b6b); padding:25px 20px; color:#fff;">
-    <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; text-align:center;">
-        <div><span style="font-size:24px; font-weight:bold;">500+</span><br><span style="font-size:14px; opacity:0.9;">PDFs</span></div>
-        <div><span style="font-size:24px; font-weight:bold;">200+</span><br><span style="font-size:14px; opacity:0.9;">Videos</span></div>
-        <div><span style="font-size:24px; font-weight:bold;">10K+</span><br><span style="font-size:14px; opacity:0.9;">Students</span></div>
-    </div>
-</section>
+<!-- ===== ONE OBVIOUS BUTTON ===== -->
+<div class="cta-section">
+    <a href="library.html" class="btn-killer">🎯 Start Learning Now</a>
 
-<!-- ===== CLASSES (Compact Grid) ===== -->
-<section class="classes" style="padding:30px 20px;">
-    <div class="section-title" style="margin-bottom:20px;">
-        <h2 style="font-size:24px;">📚 Classes V–XII</h2>
+    <!-- ===== BLINKING SHARE LINK ===== -->
+    <div class="share-container">
+        <button class="share-link" onclick="copyShareLink()">
+            <span class="icon">📢</span> Share Bidyut with Friends
+        </button>
+        <span class="share-feedback" id="shareFeedback">✅ Copied!</span>
     </div>
-    <div class="class-grid" style="grid-template-columns:repeat(4, 1fr); gap:10px;">
-        <a href="library.html?class=5" class="class-card" style="padding:12px;">V</a>
-        <a href="library.html?class=6" class="class-card" style="padding:12px;">VI</a>
-        <a href="library.html?class=7" class="class-card" style="padding:12px;">VII</a>
-        <a href="library.html?class=8" class="class-card" style="padding:12px;">VIII</a>
-        <a href="library.html?class=9" class="class-card" style="padding:12px;">IX</a>
-        <a href="library.html?class=10" class="class-card" style="padding:12px;">X</a>
-        <a href="library.html?class=11" class="class-card" style="padding:12px;">XI</a>
-        <a href="library.html?class=12" class="class-card" style="padding:12px;">XII</a>
-    </div>
-</section>
+</div>
 
-<!-- ===== YOUTUBE CHANNEL (Compact Bar) ===== -->
-<section style="padding:20px; max-width:1000px; margin:0 auto;">
-    <div style="background:linear-gradient(135deg, #1a1a2e, #0f3460); border-radius:15px; padding:15px 25px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-        <div style="display:flex; align-items:center; gap:15px; color:#fff;">
-            <span style="font-size:28px;">▶️</span>
-            <div>
-                <span style="font-weight:bold; font-size:16px;">Learn English with Bidyut</span>
-                <span style="display:block; font-size:12px; opacity:0.8;">Grammar & Communication Skills</span>
-            </div>
-        </div>
-        <a href="https://www.youtube.com/@LearnEngwithBidyut" target="_blank" 
-           style="background:#ff0000; color:#fff; padding:10px 25px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:14px;">
-            ▶️ Subscribe
-        </a>
+<!-- ===== COMPACT CLASS GRID ===== -->
+<section style="max-width: 700px; margin: 0 auto; padding: 10px 20px 30px;">
+    <p style="text-align:center; font-weight:600; color:#1a1a2e; margin-bottom:10px;">📚 Jump to Your Class</p>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; max-width:500px; margin:0 auto;">
+        <a href="library.html?class=5" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">V</a>
+        <a href="library.html?class=6" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">VI</a>
+        <a href="library.html?class=7" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">VII</a>
+        <a href="library.html?class=8" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">VIII</a>
+        <a href="library.html?class=9" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">IX</a>
+        <a href="library.html?class=10" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">X</a>
+        <a href="library.html?class=11" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">XI</a>
+        <a href="library.html?class=12" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">XII</a>
     </div>
 </section>
 
@@ -105,7 +194,7 @@
     <div class="footer-content">
         <div class="footer-section">
             <h3>📚 Bidyut</h3>
-            <p style="font-size:13px;">Free learning for Classes V–XII.</p>
+            <p style="font-size:13px;">Free English learning for Classes V–XII.</p>
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
@@ -125,6 +214,37 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// ===== SHARE LINK FUNCTION =====
+function copyShareLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const feedback = document.getElementById('shareFeedback');
+        feedback.classList.add('show');
+        setTimeout(() => {
+            feedback.classList.remove('show');
+        }, 3000);
+    }).catch(() => {
+        // Fallback for older browsers
+        const input = document.createElement('input');
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        const feedback = document.getElementById('shareFeedback');
+        feedback.classList.add('show');
+        setTimeout(() => {
+            feedback.classList.remove('show');
+        }, 3000);
+    });
+}
+
+// ===== MOBILE MENU TOGGLE =====
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+</script>
+
 </body>
 </html>
