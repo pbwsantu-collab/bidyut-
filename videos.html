@@ -15,79 +15,127 @@
         .videos-hero h1 { font-size: 40px; }
         .videos-hero p { color: #ccc; font-size: 18px; }
 
-        .video-grid {
+        .playlist-grid {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
-        .video-card {
+        .playlist-card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
         }
 
-        .video-card:hover {
+        .playlist-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        .video-card .thumbnail {
-            width: 100%;
-            height: 180px;
-            background: #1a1a2e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .playlist-card .header {
+            padding: 30px 25px 20px;
+            color: #fff;
+        }
+
+        .playlist-card .header .icon {
             font-size: 48px;
-            color: #fff;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        .video-card .info {
-            padding: 20px;
+        .playlist-card .header h3 {
+            margin: 0;
+            font-size: 22px;
         }
 
-        .video-card .info .subject {
-            color: #e94560;
-            font-weight: bold;
+        .playlist-card .header p {
+            margin: 5px 0 0;
+            opacity: 0.9;
             font-size: 14px;
         }
 
-        .video-card .info h3 {
-            margin: 10px 0;
-            color: #1a1a2e;
+        .playlist-card .body {
+            padding: 20px 25px 25px;
         }
 
-        .video-card .info .chapter {
+        .playlist-card .body .meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
             color: #666;
-            font-size: 14px;
+            margin-bottom: 15px;
         }
 
-        .video-card .info .watch-btn {
+        .playlist-card .body .watch-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 25px;
-            background: #e94560;
-            color: #fff;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            color: #fff;
+        }
+
+        .playlist-card .body .watch-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .channel-section {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding: 0 20px;
+        }
+
+        .channel-banner {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .channel-banner .info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .channel-banner .info span { font-size: 32px; }
+        .channel-banner .info h3 { margin: 0; }
+        .channel-banner .info p { margin: 0; opacity: 0.9; font-size: 14px; }
+
+        .channel-banner .subscribe-btn {
+            padding: 12px 35px;
+            background: #fff;
+            color: #ff0000;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
             transition: all 0.3s;
         }
 
-        .video-card .info .watch-btn:hover {
+        .channel-banner .subscribe-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3);
         }
 
         @media (max-width: 480px) {
             .videos-hero h1 { font-size: 28px; }
-            .video-grid { grid-template-columns: 1fr; }
+            .playlist-grid { grid-template-columns: 1fr; }
+            .channel-banner { flex-direction: column; text-align: center; }
+            .channel-banner .info { flex-direction: column; }
         }
     </style>
 </head>
@@ -108,22 +156,120 @@
 </nav>
 
 <!-- ===== VIDEOS HERO ===== -->
-<section class="videos-hero"> 
+<section class="videos-hero">
     <h1>🎥 Video Library</h1>
-    <p>Curated YouTube tutorials for every subject and chapter</p>
+    <p>Curated YouTube playlists for Grammar & English learning</p>
 </section>
 
-<!-- ===== VIDEO GRID ===== -->
-<div class="video-grid" id="videoGrid">
-    <!-- Videos inserted by JavaScript -->
+<!-- ===== CHANNEL BANNER ===== -->
+<div class="channel-section">
+    <div class="channel-banner">
+        <div class="info">
+            <span>▶️</span>
+            <div>
+                <h3>Learn English with Bidyut</h3>
+                <p>Grammar, Vocabulary & Communication Skills</p>
+            </div>
+        </div>
+        <a href="https://www.youtube.com/@LearnEngwithBidyut" target="_blank" class="subscribe-btn">
+            ▶️ Subscribe
+        </a>
+    </div>
 </div>
 
+<!-- ===== PLAYLIST GRID ===== -->
+<div class="playlist-grid">
+
+    <!-- ===== PLAYLIST 1: Prepositions ===== -->
+    <div class="playlist-card" id="prepositions">
+        <div class="header" style="background:linear-gradient(135deg, #1a1a2e, #0f3460);">
+            <span class="icon">📝</span>
+            <h3>Master Prepositions</h3>
+            <p>Complete Grammar Playlist</p>
+        </div>
+        <div class="body">
+            <div class="meta">
+                <span>📹 10+ Videos</span>
+                <span>🎯 Exam Focused</span>
+                <span>📚 Class V–XII</span>
+            </div>
+            <a href="https://youtube.com/playlist?list=PLuwU5PKxbLJrsdSoRtqaa864sbwbZUMFp" target="_blank" 
+               class="watch-btn" style="background:#e94560;">
+                ▶️ Watch Playlist
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== PLAYLIST 2: Transformation ===== -->
+    <div class="playlist-card" id="transformation">
+        <div class="header" style="background:linear-gradient(135deg, #0f3460, #1a1a2e);">
+            <span class="icon">🔄</span>
+            <h3>Transformation of Sentences</h3>
+            <p>Complete Grammar Playlist</p>
+        </div>
+        <div class="body">
+            <div class="meta">
+                <span>📹 11 Videos</span>
+                <span>🎯 All Transformations</span>
+                <span>📚 Class V–XII</span>
+            </div>
+            <a href="https://youtube.com/playlist?list=PLuwU5PKxbLJrxx9tkamHqXT2hR4uw1UML&si=t6WBeYh3YtAOK030" target="_blank" 
+               class="watch-btn" style="background:#ff0000;">
+                ▶️ Watch Playlist
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== PLAYLIST 3: Coming Soon ===== -->
+    <div class="playlist-card">
+        <div class="header" style="background:linear-gradient(135deg, #2d2d44, #3d3d5c);">
+            <span class="icon">📚</span>
+            <h3>More Coming Soon!</h3>
+            <p>New playlists added regularly</p>
+        </div>
+        <div class="body">
+            <div class="meta">
+                <span>⏳ In Progress</span>
+                <span>📝 Stay Tuned</span>
+            </div>
+            <span style="display:inline-block; padding:12px 30px; background:#ddd; border-radius:50px; color:#888; font-weight:bold;">
+                ⏳ Coming Soon
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📚 Bidyut</h3>
+            <p>Empowering students with free digital education resources for Classes V–XII.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="library.html">Library</a>
+            <a href="videos.html">Videos</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <a href="mailto:pbswantu@gmail.com">📧 Email</a>
+            <a href="https://wa.me/918926413296" target="_blank">💬 WhatsApp</a>
+            <a href="https://www.youtube.com/@LearnEngwithBidyut" target="_blank">▶️ YouTube</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Bidyut. Built with ❤️ on GitHub Pages.</p>
+    </div>
+</footer>
+
 <script>
-// ===== VIDEO DATA =====
-const videoData = [
-    { class: 5, subject: 'Mathematics', chapter: 'Numbers', title: 'Number System Explained', thumbnail: '🔢', url: 'https://www.youtube.com/watch?v=example1' },
-    { class: 6, subject: 'Science', chapter: 'Plants', title: 'Plant Kingdom - Full Lesson', thumbnail: '🌱', url: 'https://www.youtube.com/watch?v=example2' },
-    { class: 7, subject: 'Mathematics', chapter: 'Fractions', title: 'Fractions & Decimals Made Easy', thumbnail: '📊', url: 'https://www.youtube.com/watch?v=example3' },
-    { class: 8, subject: 'English', chapter: 'Grammar', title: 'Parts of Speech - Complete Guide', thumbnail: '📝', url: 'https://www.youtube.com/watch?v=example4' },
-    { class: 9, subject: 'Science', chapter: 'Motion', title: 'Laws of Motion - Physics', thumbnail: '🏃', url: 'https://www.youtube.com/watch?v=example5' },
-    { class: 10, subject: 'Mathematics', chapter: 'Geometry', title: 'Coordinate Geometry Basics', thumbnail: '📐', url: 'https://
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
