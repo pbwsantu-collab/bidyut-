@@ -4,26 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Library - Bidyut</title>
+    
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Access free PDF study materials for Classes V–XII. Browse by class, subject, and chapter. Download or view online.">
+    <meta name="keywords" content="PDF library, study materials, Class V-XII, free PDFs, educational resources">
+    <meta name="author" content="pbwsantu-collab">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ===== OPEN GRAPH TAGS ===== -->
+    <meta property="og:title" content="Digital Library - Bidyut">
+    <meta property="og:description" content="Free PDF study materials for Classes V–XII. Browse, download, and view online.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pbwsantu-collab.github.io/bidyut-/library.html">
+    
+    <!-- ===== PWA META TAGS ===== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e94560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://pbwsantu-collab.github.io/bidyut-/library.html">
+    
+    <!-- ===== STYLESHEETS ===== -->
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Library specific styles */
+        /* ===== LIBRARY SPECIFIC STYLES ===== */
         .library-hero {
             background: linear-gradient(135deg, #1a1a2e, #0f3460);
             color: #fff;
             padding: 60px 20px;
             text-align: center;
         }
-
         .library-hero h1 { font-size: 40px; }
         .library-hero p { color: #ccc; font-size: 18px; }
-
+        
         .search-box {
             max-width: 500px;
             margin: 30px auto 0;
             display: flex;
             gap: 10px;
         }
-
         .search-box input {
             flex: 1;
             padding: 14px 20px;
@@ -31,7 +53,6 @@
             border-radius: 50px;
             font-size: 16px;
         }
-
         .search-box button {
             padding: 14px 30px;
             background: #e94560;
@@ -40,74 +61,13 @@
             border-radius: 50px;
             font-size: 16px;
             cursor: pointer;
-        }
-
-        .pdf-grid {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .pdf-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
         }
-
-        .pdf-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .pdf-card .subject {
-            color: #e94560;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .pdf-card h3 {
-            margin: 10px 0;
-            color: #1a1a2e;
-        }
-
-        .pdf-card .chapter {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .pdf-card .actions {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .pdf-card .actions a {
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .pdf-card .actions .view-btn {
-            background: #1a1a2e;
-            color: #fff;
-        }
-
-        .pdf-card .actions .download-btn {
-            background: #e94560;
-            color: #fff;
-        }
-
-        .pdf-card .actions a:hover {
+        .search-box button:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
         }
-
+        
         .filter-bar {
             max-width: 1200px;
             margin: 20px auto;
@@ -116,7 +76,6 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-
         .filter-bar select {
             padding: 10px 20px;
             border: 2px solid #ddd;
@@ -124,13 +83,242 @@
             font-size: 14px;
             background: #fff;
             cursor: pointer;
+            transition: border-color 0.3s;
         }
-
+        .filter-bar select:focus {
+            border-color: #e94560;
+            outline: none;
+        }
+        
+        .library-controls {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .library-controls .result-count {
+            color: #666;
+            font-size: 14px;
+        }
+        .library-controls .sort-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .library-controls .sort-buttons button {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .library-controls .sort-buttons button:hover {
+            border-color: #e94560;
+            color: #e94560;
+        }
+        .library-controls .sort-buttons button.active {
+            border-color: #e94560;
+            background: #e94560;
+            color: #fff;
+        }
+        
+        .pdf-grid {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .pdf-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .pdf-card .subject {
+            color: #e94560;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .pdf-card h3 {
+            margin: 10px 0;
+            color: #1a1a2e;
+            font-size: 18px;
+        }
+        .pdf-card .chapter {
+            color: #666;
+            font-size: 14px;
+        }
+        .pdf-card .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .pdf-card .actions a {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .pdf-card .actions .view-btn {
+            background: #1a1a2e;
+            color: #fff;
+        }
+        .pdf-card .actions .view-btn:hover {
+            background: #0f3460;
+            transform: scale(1.05);
+        }
+        .pdf-card .actions .download-btn {
+            background: #e94560;
+            color: #fff;
+        }
+        .pdf-card .actions .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+        .pdf-card .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: bold;
+            background: #f0f0f0;
+            color: #666;
+            margin-top: 10px;
+        }
+        .pdf-card .badge.popular {
+            background: #ffeb3b;
+            color: #333;
+        }
+        .pdf-card .badge.new {
+            background: #4caf50;
+            color: #fff;
+        }
+        
+        .pagination {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .pagination button:hover:not(:disabled) {
+            border-color: #e94560;
+            color: #e94560;
+        }
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .pagination button.active {
+            background: #e94560;
+            color: #fff;
+            border-color: #e94560;
+        }
+        .pagination .page-info {
+            padding: 10px 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+        .loading-spinner .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e94560;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .no-results {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+        .no-results span { font-size: 64px; display: block; margin-bottom: 20px; }
+        .no-results h3 { color: #555; margin-bottom: 10px; }
+        
+        .recent-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .recent-section h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .recent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .recent-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        .recent-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .recent-item .title { font-weight: bold; color: #1a1a2e; font-size: 14px; }
+        .recent-item .meta { font-size: 12px; color: #888; margin-top: 5px; }
+        
         @media (max-width: 480px) {
             .library-hero h1 { font-size: 28px; }
             .search-box { flex-direction: column; }
             .pdf-grid { grid-template-columns: 1fr; }
             .filter-bar { flex-direction: column; }
+            .filter-bar select { width: 100%; }
+            .library-controls { flex-direction: column; align-items: stretch; }
+            .library-controls .sort-buttons { justify-content: center; }
+            .pagination { gap: 5px; }
+            .pagination button { padding: 8px 12px; font-size: 12px; }
+            .recent-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 360px) {
+            .recent-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -183,87 +371,48 @@
     </select>
 </div>
 
+<!-- ===== LIBRARY CONTROLS ===== -->
+<div class="library-controls">
+    <span class="result-count" id="resultCount">📚 Showing 16 PDFs</span>
+    <div class="sort-buttons">
+        <button onclick="sortPDFs('title')" id="sortTitle">🔤 A-Z</button>
+        <button onclick="sortPDFs('class')" id="sortClass">📚 By Class</button>
+        <button onclick="sortPDFs('recent')" id="sortRecent" class="active">🕐 Recent</button>
+    </div>
+</div>
+
 <!-- ===== PDF GRID ===== -->
 <div class="pdf-grid" id="pdfGrid">
     <!-- PDFs will be inserted by JavaScript -->
 </div>
 
-<script>
-// ===== PDF DATA =====
-const pdfData = [
-    { class: 5, subject: 'Mathematics', chapter: 'Chapter 1: Numbers', title: 'Number System', file: 'maths_class5_ch1.pdf' },
-    { class: 5, subject: 'Science', chapter: 'Chapter 1: Plants', title: 'Plant Kingdom', file: 'science_class5_ch1.pdf' },
-    { class: 6, subject: 'Mathematics', chapter: 'Chapter 2: Fractions', title: 'Fractions & Decimals', file: 'maths_class6_ch2.pdf' },
-    { class: 6, subject: 'English', chapter: 'Chapter 1: Grammar', title: 'Parts of Speech', file: 'english_class6_ch1.pdf' },
-    { class: 7, subject: 'Science', chapter: 'Chapter 3: Heat', title: 'Heat & Temperature', file: 'science_class7_ch3.pdf' },
-    { class: 7, subject: 'Social Studies', chapter: 'Chapter 1: History', title: 'Ancient Civilizations', file: 'ss_class7_ch1.pdf' },
-    { class: 8, subject: 'Mathematics', chapter: 'Chapter 4: Algebra', title: 'Algebraic Expressions', file: 'maths_class8_ch4.pdf' },
-    { class: 8, subject: 'Computer', chapter: 'Chapter 1: Basics', title: 'Introduction to Computers', file: 'computer_class8_ch1.pdf' },
-    { class: 9, subject: 'Science', chapter: 'Chapter 5: Motion', title: 'Laws of Motion', file: 'science_class9_ch5.pdf' },
-    { class: 9, subject: 'Mathematics', chapter: 'Chapter 6: Geometry', title: 'Coordinate Geometry', file: 'maths_class9_ch6.pdf' },
-    { class: 10, subject: 'Science', chapter: 'Chapter 7: Electricity', title: 'Electricity & Circuits', file: 'science_class10_ch7.pdf' },
-    { class: 10, subject: 'English', chapter: 'Chapter 3: Writing', title: 'Essay Writing Skills', file: 'english_class10_ch3.pdf' },
-    { class: 11, subject: 'Mathematics', chapter: 'Chapter 8: Calculus', title: 'Limits & Derivatives', file: 'maths_class11_ch8.pdf' },
-    { class: 11, subject: 'Science', chapter: 'Chapter 9: Chemistry', title: 'Chemical Bonding', file: 'science_class11_ch9.pdf' },
-    { class: 12, subject: 'Mathematics', chapter: 'Chapter 10: Integration', title: 'Integral Calculus', file: 'maths_class12_ch10.pdf' },
-    { class: 12, subject: 'Science', chapter: 'Chapter 11: Physics', title: 'Wave Optics', file: 'science_class12_ch11.pdf' }
-];
+<!-- ===== LOADING SPINNER ===== -->
+<div class="loading-spinner" id="loadingSpinner">
+    <div class="spinner"></div>
+    <p style="color:#888; margin-top:15px;">Loading PDFs...</p>
+</div>
 
-// ===== RENDER PDFs =====
-function renderPDFs(data) {
-    const grid = document.getElementById('pdfGrid');
-    if (data.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:50px;">📭 No PDFs found. Try adjusting your filters.</p>';
-        return;
-    }
-    grid.innerHTML = data.map(pdf => `
-        <div class="pdf-card fade-in">
-            <div class="subject">Class ${pdf.class} • ${pdf.subject}</div>
-            <h3>${pdf.title}</h3>
-            <div class="chapter">${pdf.chapter}</div>
-            <div class="actions">
-                <a href="#" class="view-btn" onclick="alert('📄 Opening ${pdf.file}')">👁️ View</a>
-                <a href="#" class="download-btn" onclick="alert('⬇️ Downloading ${pdf.file}')">⬇️ Download</a>
-            </div>
-        </div>
-    `).join('');
-}
+<!-- ===== PAGINATION ===== -->
+<div class="pagination" id="pagination">
+    <button id="prevPage" onclick="changePage(-1)">← Previous</button>
+    <span class="page-info" id="pageInfo">Page 1 of 1</span>
+    <button id="nextPage" onclick="changePage(1)">Next →</button>
+</div>
 
-// ===== FILTER FUNCTION =====
-function filterPDFs() {
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    const classFilter = document.getElementById('classFilter').value;
-    const subjectFilter = document.getElementById('subjectFilter').value;
-
-    const filtered = pdfData.filter(pdf => {
-        const matchSearch = pdf.title.toLowerCase().includes(search) ||
-                           pdf.subject.toLowerCase().includes(search) ||
-                           pdf.chapter.toLowerCase().includes(search);
-        const matchClass = classFilter === 'all' || pdf.class === parseInt(classFilter);
-        const matchSubject = subjectFilter === 'all' || pdf.subject === subjectFilter;
-        return matchSearch && matchClass && matchSubject;
-    });
-
-    renderPDFs(filtered);
-}
-
-// ===== INITIAL LOAD =====
-document.addEventListener('DOMContentLoaded', () => {
-    renderPDFs(pdfData);
-});
-
-// Mobile menu toggle
-function toggleMenu() {
-    document.querySelector('.nav-menu').classList.toggle('open');
-}
-</script>
+<!-- ===== RECENTLY UPLOADED ===== -->
+<section class="recent-section" id="recentSection">
+    <h3>🕐 Recently Uploaded</h3>
+    <div class="recent-grid" id="recentGrid">
+        <!-- Recent items inserted by JavaScript -->
+    </div>
+</section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-section">
             <h3>📚 Bidyut</h3>
-            <p>Empowering students with free digital education resources for Classes V–XII.</p>
+            <p style="font-size:13px;">Free English learning for Classes V–XII.</p>
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
@@ -273,15 +422,280 @@ function toggleMenu() {
         </div>
         <div class="footer-section">
             <h4>Connect</h4>
-            <a href="#">📧 Email</a>
-            <a href="#">📱 Instagram</a>
-            <a href="#">▶️ YouTube</a>
+            <a href="mailto:pbswantu@gmail.com">📧 Email</a>
+            <a href="https://wa.me/918926413296" target="_blank">💬 WhatsApp</a>
+            <a href="https://www.youtube.com/@LearnEngwithBidyut" target="_blank">▶️ YouTube</a>
         </div>
     </div>
     <div class="footer-bottom">
         <p>&copy; 2026 Bidyut. Built with ❤️ on GitHub Pages.</p>
     </div>
 </footer>
+
+<!-- ===== BACK TO TOP BUTTON ===== -->
+<button id="backToTop" onclick="scrollToTop()" title="Back to Top">↑</button>
+
+<!-- ============================================= -->
+<!-- ===== SCRIPTS ===== -->
+<!-- ============================================= -->
+
+<script>
+// =============================================
+// 1. PDF DATA
+// =============================================
+const pdfData = [
+    { class: 5, subject: 'Mathematics', chapter: 'Chapter 1: Numbers', title: 'Number System', file: 'maths_class5_ch1.pdf', date: '2026-07-14' },
+    { class: 5, subject: 'Science', chapter: 'Chapter 1: Plants', title: 'Plant Kingdom', file: 'science_class5_ch1.pdf', date: '2026-07-13' },
+    { class: 6, subject: 'Mathematics', chapter: 'Chapter 2: Fractions', title: 'Fractions & Decimals', file: 'maths_class6_ch2.pdf', date: '2026-07-12' },
+    { class: 6, subject: 'English', chapter: 'Chapter 1: Grammar', title: 'Parts of Speech', file: 'english_class6_ch1.pdf', date: '2026-07-11' },
+    { class: 7, subject: 'Science', chapter: 'Chapter 3: Heat', title: 'Heat & Temperature', file: 'science_class7_ch3.pdf', date: '2026-07-10' },
+    { class: 7, subject: 'Social Studies', chapter: 'Chapter 1: History', title: 'Ancient Civilizations', file: 'ss_class7_ch1.pdf', date: '2026-07-09' },
+    { class: 8, subject: 'Mathematics', chapter: 'Chapter 4: Algebra', title: 'Algebraic Expressions', file: 'maths_class8_ch4.pdf', date: '2026-07-08' },
+    { class: 8, subject: 'Computer', chapter: 'Chapter 1: Basics', title: 'Introduction to Computers', file: 'computer_class8_ch1.pdf', date: '2026-07-07' },
+    { class: 9, subject: 'Science', chapter: 'Chapter 5: Motion', title: 'Laws of Motion', file: 'science_class9_ch5.pdf', date: '2026-07-06' },
+    { class: 9, subject: 'Mathematics', chapter: 'Chapter 6: Geometry', title: 'Coordinate Geometry', file: 'maths_class9_ch6.pdf', date: '2026-07-05' },
+    { class: 10, subject: 'Science', chapter: 'Chapter 7: Electricity', title: 'Electricity & Circuits', file: 'science_class10_ch7.pdf', date: '2026-07-04' },
+    { class: 10, subject: 'English', chapter: 'Chapter 3: Writing', title: 'Essay Writing Skills', file: 'english_class10_ch3.pdf', date: '2026-07-03' },
+    { class: 11, subject: 'Mathematics', chapter: 'Chapter 8: Calculus', title: 'Limits & Derivatives', file: 'maths_class11_ch8.pdf', date: '2026-07-02' },
+    { class: 11, subject: 'Science', chapter: 'Chapter 9: Chemistry', title: 'Chemical Bonding', file: 'science_class11_ch9.pdf', date: '2026-07-01' },
+    { class: 12, subject: 'Mathematics', chapter: 'Chapter 10: Integration', title: 'Integral Calculus', file: 'maths_class12_ch10.pdf', date: '2026-06-30' },
+    { class: 12, subject: 'Science', chapter: 'Chapter 11: Physics', title: 'Wave Optics', file: 'science_class12_ch11.pdf', date: '2026-06-29' }
+];
+
+// =============================================
+// 2. STATE VARIABLES
+// =============================================
+let currentData = [];
+let currentPage = 1;
+const itemsPerPage = 6;
+let currentSort = 'recent';
+let currentFilteredData = [];
+
+// =============================================
+// 3. RENDER PDFs
+// =============================================
+function renderPDFs(data) {
+    const grid = document.getElementById('pdfGrid');
+    currentData = data;
+    
+    if (data.length === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <span>📭</span>
+                <h3>No PDFs Found</h3>
+                <p>Try adjusting your filters or search terms.</p>
+            </div>
+        `;
+        document.getElementById('resultCount').textContent = '📚 Showing 0 PDFs';
+        return;
+    }
+    
+    // Calculate pagination
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+    
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = Math.min(start + itemsPerPage, data.length);
+    const pageData = data.slice(start, end);
+    
+    // Render cards
+    grid.innerHTML = pageData.map((pdf, index) => {
+        const isPopular = index < 2;
+        const isNew = index < 1;
+        const badge = isPopular ? '<span class="badge popular">⭐ Popular</span>' : 
+                     isNew ? '<span class="badge new">✨ New</span>' : '';
+        
+        return `
+            <div class="pdf-card fade-in">
+                <div class="subject">Class ${pdf.class} • ${pdf.subject}</div>
+                <h3>${pdf.title}</h3>
+                <div class="chapter">${pdf.chapter}</div>
+                ${badge}
+                <div class="actions">
+                    <a href="#" class="view-btn" onclick="alert('📄 Opening ${pdf.file}')">👁️ View</a>
+                    <a href="#" class="download-btn" onclick="alert('⬇️ Downloading ${pdf.file}')">⬇️ Download</a>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    // Update result count
+    document.getElementById('resultCount').textContent = `📚 Showing ${data.length} PDFs`;
+    
+    // Update pagination
+    updatePagination(data.length);
+}
+
+// =============================================
+// 4. PAGINATION
+// =============================================
+function updatePagination(totalItems) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+    document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+    document.getElementById('prevPage').disabled = currentPage <= 1;
+    document.getElementById('nextPage').disabled = currentPage >= totalPages;
+}
+
+function changePage(delta) {
+    const totalPages = Math.ceil(currentData.length / itemsPerPage) || 1;
+    const newPage = currentPage + delta;
+    if (newPage < 1 || newPage > totalPages) return;
+    currentPage = newPage;
+    renderPDFs(currentData);
+    // Scroll to top of grid
+    document.querySelector('.pdf-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// =============================================
+// 5. FILTER FUNCTION
+// =============================================
+function filterPDFs() {
+    // Show loading spinner
+    document.getElementById('loadingSpinner').style.display = 'block';
+    
+    setTimeout(() => {
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const classFilter = document.getElementById('classFilter').value;
+        const subjectFilter = document.getElementById('subjectFilter').value;
+        
+        let filtered = pdfData.filter(pdf => {
+            const matchSearch = pdf.title.toLowerCase().includes(search) ||
+                               pdf.subject.toLowerCase().includes(search) ||
+                               pdf.chapter.toLowerCase().includes(search);
+            const matchClass = classFilter === 'all' || pdf.class === parseInt(classFilter);
+            const matchSubject = subjectFilter === 'all' || pdf.subject === subjectFilter;
+            return matchSearch && matchClass && matchSubject;
+        });
+        
+        // Apply current sort
+        filtered = applySort(filtered, currentSort);
+        
+        currentFilteredData = filtered;
+        currentPage = 1;
+        renderPDFs(filtered);
+        
+        // Hide loading spinner
+        document.getElementById('loadingSpinner').style.display = 'none';
+    }, 300);
+}
+
+// =============================================
+// 6. SORT FUNCTIONS
+// =============================================
+function applySort(data, sortType) {
+    const sorted = [...data];
+    switch(sortType) {
+        case 'title':
+            sorted.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        case 'class':
+            sorted.sort((a, b) => a.class - b.class);
+            break;
+        case 'recent':
+            sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+            break;
+        default:
+            break;
+    }
+    return sorted;
+}
+
+function sortPDFs(sortType) {
+    currentSort = sortType;
+    
+    // Update active button
+    document.querySelectorAll('.sort-buttons button').forEach(btn => btn.classList.remove('active'));
+    const btnMap = { 'title': 'sortTitle', 'class': 'sortClass', 'recent': 'sortRecent' };
+    document.getElementById(btnMap[sortType]).classList.add('active');
+    
+    // Apply sort to current filtered data
+    const sorted = applySort(currentFilteredData.length > 0 ? currentFilteredData : pdfData, sortType);
+    currentFilteredData = sorted;
+    currentPage = 1;
+    renderPDFs(sorted);
+}
+
+// =============================================
+// 7. RECENTLY UPLOADED
+// =============================================
+function renderRecent() {
+    const grid = document.getElementById('recentGrid');
+    const recent = [...pdfData].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 6);
+    
+    grid.innerHTML = recent.map(pdf => `
+        <div class="recent-item">
+            <div class="title">${pdf.title}</div>
+            <div class="meta">Class ${pdf.class} • ${pdf.subject}</div>
+        </div>
+    `).join('');
+}
+
+// =============================================
+// 8. MOBILE MENU TOGGLE
+// =============================================
+function toggleMenu() {
+    document.querySelector('.nav-menu').classList.toggle('open');
+}
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-menu').classList.remove('open');
+    });
+});
+
+// =============================================
+// 9. BACK TO TOP
+// =============================================
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+});
+
+// =============================================
+// 10. SCROLL ANIMATIONS
+// =============================================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.pdf-card').forEach(el => observer.observe(el));
+});
+
+// =============================================
+// 11. SERVICE WORKER REGISTRATION
+// =============================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('📚 Service Worker registered'))
+            .catch(err => console.log('Service Worker error:', err));
+    });
+}
+
+// =============================================
+// 12. INITIAL LOAD
+// =============================================
+document.addEventListener('DOMContentLoaded', () => {
+    currentFilteredData = pdfData;
+    renderPDFs(pdfData);
+    renderRecent();
+    console.log('📚 Bidyut Library loaded successfully!');
+});
+</script>
 
 </body>
 </html>
