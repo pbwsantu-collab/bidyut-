@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Library - Bidyut</title>
+    
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Watch free English grammar video playlists for Classes V–XII. Master prepositions, transformation of sentences, tenses, and more.">
+    <meta name="keywords" content="English grammar videos, video library, grammar playlists, prepositions, transformation of sentences, tenses">
+    <meta name="author" content="pbwsantu-collab">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ===== OPEN GRAPH TAGS ===== -->
+    <meta property="og:title" content="Video Library - Bidyut">
+    <meta property="og:description" content="Free English grammar video playlists for Classes V–XII. Learn with Bidyut.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pbwsantu-collab.github.io/bidyut-/videos.html">
+    <meta property="og:image" content="https://pbwsantu-collab.github.io/bidyut-/icons/icon-512x512.png">
+    
+    <!-- ===== TWITTER CARDS ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Video Library - Bidyut">
+    <meta name="twitter:description" content="Free English grammar video playlists for Classes V–XII.">
+    <meta name="twitter:image" content="https://pbwsantu-collab.github.io/bidyut-/icons/icon-512x512.png">
+    
+    <!-- ===== PWA META TAGS ===== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e94560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://pbwsantu-collab.github.io/bidyut-/videos.html">
+    
+    <!-- ===== STYLESHEETS ===== -->
     <link rel="stylesheet" href="style.css">
     <style>
+        /* ===== VIDEOS SPECIFIC STYLES ===== */
         .videos-hero {
             background: linear-gradient(135deg, #1a1a2e, #0f3460);
             color: #fff;
@@ -14,86 +46,12 @@
         }
         .videos-hero h1 { font-size: 40px; }
         .videos-hero p { color: #ccc; font-size: 18px; }
-
-        .playlist-grid {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .playlist-card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .playlist-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .playlist-card .header {
-            padding: 30px 25px 20px;
-            color: #fff;
-        }
-
-        .playlist-card .header .icon {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .playlist-card .header h3 {
-            margin: 0;
-            font-size: 22px;
-        }
-
-        .playlist-card .header p {
-            margin: 5px 0 0;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-
-        .playlist-card .body {
-            padding: 20px 25px 25px;
-        }
-
-        .playlist-card .body .meta {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .playlist-card .body .watch-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: all 0.3s;
-            color: #fff;
-        }
-
-        .playlist-card .body .watch-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
+        
         .channel-section {
             max-width: 1200px;
             margin: 30px auto 0;
             padding: 0 20px;
         }
-
         .channel-banner {
             background: linear-gradient(135deg, #ff0000, #cc0000);
             color: #fff;
@@ -104,18 +62,16 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
+            box-shadow: 0 5px 20px rgba(255,0,0,0.2);
         }
-
         .channel-banner .info {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
         .channel-banner .info span { font-size: 32px; }
         .channel-banner .info h3 { margin: 0; }
         .channel-banner .info p { margin: 0; opacity: 0.9; font-size: 14px; }
-
         .channel-banner .subscribe-btn {
             padding: 12px 35px;
             background: #fff;
@@ -126,16 +82,182 @@
             font-size: 16px;
             transition: all 0.3s;
         }
-
         .channel-banner .subscribe-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
         }
-
+        
+        .video-controls {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .video-controls .search-box {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+        .video-controls .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        .video-controls .search-box input:focus {
+            border-color: #e94560;
+            outline: none;
+        }
+        .video-controls .result-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .playlist-grid {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .playlist-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .playlist-card .header {
+            padding: 30px 25px 20px;
+            color: #fff;
+            position: relative;
+        }
+        .playlist-card .header .icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .playlist-card .header h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .playlist-card .header p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .playlist-card .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+        .playlist-card .body {
+            padding: 20px 25px 25px;
+        }
+        .playlist-card .body .meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .playlist-card .body .meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .playlist-card .body .watch-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            color: #fff;
+        }
+        .playlist-card .body .watch-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .playlist-card .body .coming-soon {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #f0f0f0;
+            border-radius: 50px;
+            color: #888;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .no-results {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+        .no-results span { font-size: 64px; display: block; margin-bottom: 20px; }
+        .no-results h3 { color: #555; margin-bottom: 10px; }
+        
+        .stats-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .stats-grid .stat-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+        }
+        .stats-grid .stat-item .number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e94560;
+        }
+        .stats-grid .stat-item .label {
+            font-size: 14px;
+            color: #888;
+        }
+        
         @media (max-width: 480px) {
             .videos-hero h1 { font-size: 28px; }
+            .videos-hero p { font-size: 16px; }
             .playlist-grid { grid-template-columns: 1fr; }
             .channel-banner { flex-direction: column; text-align: center; }
             .channel-banner .info { flex-direction: column; }
+            .video-controls { flex-direction: column; align-items: stretch; }
+            .video-controls .search-box { max-width: 100%; }
+            .video-controls .result-count { text-align: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 360px) {
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -177,8 +299,38 @@
     </div>
 </div>
 
+<!-- ===== VIDEO CONTROLS ===== -->
+<div class="video-controls">
+    <div class="search-box">
+        <input type="text" id="videoSearch" placeholder="🔍 Search playlists by title..." onkeyup="filterPlaylists()">
+    </div>
+    <span class="result-count" id="resultCount">🎯 Showing 3 playlists</span>
+</div>
+
+<!-- ===== STATS SECTION ===== -->
+<div class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="number">21+</div>
+            <div class="label">Total Videos</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">2</div>
+            <div class="label">Active Playlists</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">📚</div>
+            <div class="label">Grammar Topics</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">🎯</div>
+            <div class="label">Exam Focused</div>
+        </div>
+    </div>
+</div>
+
 <!-- ===== PLAYLIST GRID ===== -->
-<div class="playlist-grid">
+<div class="playlist-grid" id="playlistGrid">
 
     <!-- ===== PLAYLIST 1: Prepositions ===== -->
     <div class="playlist-card" id="prepositions">
@@ -186,10 +338,10 @@
             <span class="icon">📝</span>
             <h3>Master Prepositions</h3>
             <p>Complete Grammar Playlist</p>
+            <span class="badge">📹 10+ Videos</span>
         </div>
         <div class="body">
             <div class="meta">
-                <span>📹 10+ Videos</span>
                 <span>🎯 Exam Focused</span>
                 <span>📚 Class V–XII</span>
             </div>
@@ -206,10 +358,10 @@
             <span class="icon">🔄</span>
             <h3>Transformation of Sentences</h3>
             <p>Complete Grammar Playlist</p>
+            <span class="badge">📹 11 Videos</span>
         </div>
         <div class="body">
             <div class="meta">
-                <span>📹 11 Videos</span>
                 <span>🎯 All Transformations</span>
                 <span>📚 Class V–XII</span>
             </div>
@@ -226,15 +378,14 @@
             <span class="icon">📚</span>
             <h3>More Coming Soon!</h3>
             <p>New playlists added regularly</p>
+            <span class="badge">⏳ In Progress</span>
         </div>
         <div class="body">
             <div class="meta">
-                <span>⏳ In Progress</span>
                 <span>📝 Stay Tuned</span>
+                <span>✨ New Content</span>
             </div>
-            <span style="display:inline-block; padding:12px 30px; background:#ddd; border-radius:50px; color:#888; font-weight:bold;">
-                ⏳ Coming Soon
-            </span>
+            <span class="coming-soon">⏳ Coming Soon</span>
         </div>
     </div>
 
@@ -245,7 +396,7 @@
     <div class="footer-content">
         <div class="footer-section">
             <h3>📚 Bidyut</h3>
-            <p>Empowering students with free digital education resources for Classes V–XII.</p>
+            <p style="font-size:13px;">Free English learning for Classes V–XII.</p>
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
@@ -265,10 +416,193 @@
     </div>
 </footer>
 
+<!-- ===== BACK TO TOP BUTTON ===== -->
+<button id="backToTop" onclick="scrollToTop()" title="Back to Top">↑</button>
+
+<!-- ============================================= -->
+<!-- ===== SCRIPTS ===== -->
+<!-- ============================================= -->
+
 <script>
+// =============================================
+// 1. PLAYLIST DATA
+// =============================================
+const playlistData = [
+    {
+        id: 'prepositions',
+        title: 'Master Prepositions',
+        subtitle: 'Complete Grammar Playlist',
+        icon: '📝',
+        gradient: 'linear-gradient(135deg, #1a1a2e, #0f3460)',
+        videos: '10+',
+        tags: ['🎯 Exam Focused', '📚 Class V–XII'],
+        url: 'https://youtube.com/playlist?list=PLuwU5PKxbLJrsdSoRtqaa864sbwbZUMFp',
+        btnColor: '#e94560',
+        status: 'active'
+    },
+    {
+        id: 'transformation',
+        title: 'Transformation of Sentences',
+        subtitle: 'Complete Grammar Playlist',
+        icon: '🔄',
+        gradient: 'linear-gradient(135deg, #0f3460, #1a1a2e)',
+        videos: '11',
+        tags: ['🎯 All Transformations', '📚 Class V–XII'],
+        url: 'https://youtube.com/playlist?list=PLuwU5PKxbLJrxx9tkamHqXT2hR4uw1UML&si=t6WBeYh3YtAOK030',
+        btnColor: '#ff0000',
+        status: 'active'
+    },
+    {
+        id: 'coming-soon',
+        title: 'More Coming Soon!',
+        subtitle: 'New playlists added regularly',
+        icon: '📚',
+        gradient: 'linear-gradient(135deg, #2d2d44, #3d3d5c)',
+        videos: '⏳',
+        tags: ['📝 Stay Tuned', '✨ New Content'],
+        url: null,
+        btnColor: null,
+        status: 'coming'
+    }
+];
+
+// =============================================
+// 2. RENDER PLAYLISTS
+// =============================================
+function renderPlaylists(data) {
+    const grid = document.getElementById('playlistGrid');
+    
+    if (data.length === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <span>🎥</span>
+                <h3>No Playlists Found</h3>
+                <p>Try adjusting your search terms.</p>
+            </div>
+        `;
+        document.getElementById('resultCount').textContent = '🎯 Showing 0 playlists';
+        return;
+    }
+    
+    grid.innerHTML = data.map(playlist => {
+        let actionHtml;
+        if (playlist.status === 'active') {
+            actionHtml = `
+                <a href="${playlist.url}" target="_blank" class="watch-btn" style="background:${playlist.btnColor};">
+                    ▶️ Watch Playlist
+                </a>
+            `;
+        } else {
+            actionHtml = `
+                <span class="coming-soon">⏳ Coming Soon</span>
+            `;
+        }
+        
+        return `
+            <div class="playlist-card" id="${playlist.id}">
+                <div class="header" style="background:${playlist.gradient};">
+                    <span class="icon">${playlist.icon}</span>
+                    <h3>${playlist.title}</h3>
+                    <p>${playlist.subtitle}</p>
+                    <span class="badge">📹 ${playlist.videos} Videos</span>
+                </div>
+                <div class="body">
+                    <div class="meta">
+                        ${playlist.tags.map(tag => `<span>${tag}</span>`).join('')}
+                    </div>
+                    ${actionHtml}
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    const total = data.filter(p => p.status === 'active').length;
+    document.getElementById('resultCount').textContent = `🎯 Showing ${total} active playlists`;
+}
+
+// =============================================
+// 3. SEARCH PLAYLISTS
+// =============================================
+function filterPlaylists() {
+    const query = document.getElementById('videoSearch').value.toLowerCase().trim();
+    
+    if (query.length < 1) {
+        renderPlaylists(playlistData);
+        return;
+    }
+    
+    const filtered = playlistData.filter(playlist => {
+        return playlist.title.toLowerCase().includes(query) ||
+               playlist.subtitle.toLowerCase().includes(query) ||
+               playlist.tags.some(tag => tag.toLowerCase().includes(query));
+    });
+    
+    renderPlaylists(filtered);
+}
+
+// =============================================
+// 4. MOBILE MENU TOGGLE
+// =============================================
 function toggleMenu() {
     document.querySelector('.nav-menu').classList.toggle('open');
 }
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-menu').classList.remove('open');
+    });
+});
+
+// =============================================
+// 5. BACK TO TOP
+// =============================================
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+});
+
+// =============================================
+// 6. SCROLL ANIMATIONS
+// =============================================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.playlist-card').forEach(el => observer.observe(el));
+});
+
+// =============================================
+// 7. SERVICE WORKER REGISTRATION
+// =============================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('📚 Service Worker registered'))
+            .catch(err => console.log('Service Worker error:', err));
+    });
+}
+
+// =============================================
+// 8. INITIAL LOAD
+// =============================================
+document.addEventListener('DOMContentLoaded', () => {
+    renderPlaylists(playlistData);
+    console.log('📚 Bidyut Videos loaded successfully!');
+    console.log(`🎯 Loaded ${playlistData.filter(p => p.status === 'active').length} active playlists`);
+});
 </script>
 
 </body>
