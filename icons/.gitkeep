@@ -1,0 +1,23 @@
+# This file keeps the icons/ folder in Git
+# 
+# Git does not track empty folders. This file ensures
+# the icons folder exists in the repository so you can
+# add your PWA icons later.
+# 
+# To replace this file with actual icons:
+# 1. Generate icons using PWA Icon Generator
+# 2. Upload them to this folder
+# 3. Remove this .gitkeep file when icons are added
+# 
+# Required icons for PWA:
+# - icon-72x72.png
+# - icon-96x96.png
+# - icon-128x128.png
+# - icon-144x144.png
+# - icon-152x152.png
+# - icon-192x192.png
+# - icon-384x384.png
+# - icon-512x512.png
+# 
+# You can generate all sizes at:
+# https://www.pwabuilder.com/imageGenerator
