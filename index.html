@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bidyut - Master English Grammar</title>
+    
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Free English learning platform for Classes V–XII. Master grammar, access PDFs, watch video tutorials, and ace your exams.">
+    <meta name="keywords" content="English grammar, learn English, Class V-XII, PDF library, video tutorials, Bidyut">
+    <meta name="author" content="pbwsantu-collab">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ===== OPEN GRAPH TAGS ===== -->
+    <meta property="og:title" content="Bidyut - Master English Grammar">
+    <meta property="og:description" content="Free English learning platform for Classes V–XII. Master grammar, access PDFs, watch video tutorials.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pbwsantu-collab.github.io/bidyut-/">
+    <meta property="og:image" content="https://pbwsantu-collab.github.io/bidyut-/icons/icon-512x512.png">
+    
+    <!-- ===== TWITTER CARDS ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bidyut - Master English Grammar">
+    <meta name="twitter:description" content="Free English learning platform for Classes V–XII.">
+    <meta name="twitter:image" content="https://pbwsantu-collab.github.io/bidyut-/icons/icon-512x512.png">
+    
+    <!-- ===== PWA META TAGS ===== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e94560">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://pbwsantu-collab.github.io/bidyut-/">
+    
+    <!-- ===== STYLESHEETS ===== -->
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Compact layout overrides */
+        /* ===== COMPACT LAYOUT OVERRIDES ===== */
         .hero {
             padding: 40px 20px 20px;
             min-height: auto;
@@ -18,6 +49,8 @@
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
+        
+        /* ===== BENEFITS GRID ===== */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -33,10 +66,17 @@
             text-align: center;
             box-shadow: 0 3px 15px rgba(0,0,0,0.06);
             border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         .benefit-item .icon { font-size: 28px; display: block; margin-bottom: 5px; }
         .benefit-item .label { font-size: 14px; font-weight: 600; color: #1a1a2e; }
         .benefit-item .desc { font-size: 12px; color: #888; margin: 0; }
+        
+        /* ===== CTA SECTION ===== */
         .cta-section {
             text-align: center;
             padding: 20px 20px 30px;
@@ -58,7 +98,7 @@
             transform: scale(1.05);
             box-shadow: 0 12px 40px rgba(233, 69, 96, 0.6);
         }
-
+        
         /* ===== BLINKING SHARE LINK ===== */
         .share-container {
             margin-top: 15px;
@@ -81,9 +121,7 @@
         .share-link:hover {
             background: #0f3460;
         }
-        .share-link .icon {
-            margin-right: 8px;
-        }
+        .share-link .icon { margin-right: 8px; }
         .share-feedback {
             display: inline-block;
             margin-left: 10px;
@@ -93,23 +131,113 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        .share-feedback.show {
-            opacity: 1;
-        }
-
+        .share-feedback.show { opacity: 1; }
+        
         @keyframes blinkPulse {
             0% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.7; transform: scale(1.02); box-shadow: 0 0 20px rgba(233, 69, 96, 0.3); }
             100% { opacity: 1; transform: scale(1); }
         }
-
-        /* Hide old sections we don't need */
-        .features, .stats, .classes, .grammar-featured, [style*="YouTube"], .youtube-section {
-            display: none !important;
+        
+        /* ===== SEARCH CONTAINER ===== */
+        #globalSearchContainer {
+            position: relative;
+            max-width: 500px;
+            margin: 15px auto 0;
+            padding: 0 20px;
         }
-        /* Keep footer clean */
-        .footer {
-            margin-top: 20px;
+        #globalSearchInput {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            box-sizing: border-box;
+        }
+        #globalSearchInput::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        #globalSearchInput:focus {
+            border-color: #e94560;
+            outline: none;
+            background: rgba(255,255,255,0.2);
+        }
+        #searchResults {
+            position: absolute;
+            top: 70px;
+            left: 20px;
+            right: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 9999;
+        }
+        #searchResults a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+        #searchResults a:hover {
+            background: #f8f9fa;
+        }
+        #searchResults .result-type {
+            background: #e94560;
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .result-highlight {
+            background: #ffeb3b;
+            font-weight: bold;
+        }
+        
+        /* ===== CLASS GRID ===== */
+        .class-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .class-grid-compact a {
+            background: #f0f0f0;
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .class-grid-compact a:hover {
+            background: #e94560;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 26px; }
+            .btn-killer { padding: 14px 40px; font-size: 1.1rem; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .class-grid-compact { grid-template-columns: repeat(4, 1fr); }
+            #globalSearchContainer { padding: 0 10px; }
+            #searchResults { left: 10px; right: 10px; }
+        }
+        @media (max-width: 360px) {
+            .class-grid-compact { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -133,7 +261,15 @@
 <section class="hero">
     <div class="hero-content">
         <h1>Master English Grammar & Ace Your Exams — <span>Free.</span></h1>
-        <p style="font-size: 1.2rem; color: #555; margin-bottom: 10px;">Class V–XII study materials, video playlists, and PDFs—all in one place.</p>
+        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 10px;">
+            Class V–XII study materials, video playlists, and PDFs—all in one place.
+        </p>
+        
+        <!-- ===== GLOBAL SEARCH ===== -->
+        <div id="globalSearchContainer">
+            <input type="text" id="globalSearchInput" placeholder="🔍 Search PDFs, Videos, Grammar Topics...">
+            <div id="searchResults"></div>
+        </div>
     </div>
 </section>
 
@@ -164,7 +300,7 @@
 <!-- ===== ONE OBVIOUS BUTTON ===== -->
 <div class="cta-section">
     <a href="library.html" class="btn-killer">🎯 Start Learning Now</a>
-
+    
     <!-- ===== BLINKING SHARE LINK ===== -->
     <div class="share-container">
         <button class="share-link" onclick="copyShareLink()">
@@ -177,15 +313,15 @@
 <!-- ===== COMPACT CLASS GRID ===== -->
 <section style="max-width: 700px; margin: 0 auto; padding: 10px 20px 30px;">
     <p style="text-align:center; font-weight:600; color:#1a1a2e; margin-bottom:10px;">📚 Jump to Your Class</p>
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; max-width:500px; margin:0 auto;">
-        <a href="library.html?class=5" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">V</a>
-        <a href="library.html?class=6" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">VI</a>
-        <a href="library.html?class=7" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">VII</a>
-        <a href="library.html?class=8" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">VIII</a>
-        <a href="library.html?class=9" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">IX</a>
-        <a href="library.html?class=10" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">X</a>
-        <a href="library.html?class=11" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">XI</a>
-        <a href="library.html?class=12" style="background:#f0f0f0; padding:8px; border-radius:8px; text-align:center; text-decoration:none; color:#333; font-size:14px; font-weight:bold;">XII</a>
+    <div class="class-grid-compact">
+        <a href="library.html?class=5">V</a>
+        <a href="library.html?class=6">VI</a>
+        <a href="library.html?class=7">VII</a>
+        <a href="library.html?class=8">VIII</a>
+        <a href="library.html?class=9">IX</a>
+        <a href="library.html?class=10">X</a>
+        <a href="library.html?class=11">XI</a>
+        <a href="library.html?class=12">XII</a>
     </div>
 </section>
 
@@ -214,8 +350,38 @@
     </div>
 </footer>
 
+<!-- ===== BACK TO TOP BUTTON ===== -->
+<button id="backToTop" onclick="scrollToTop()" title="Back to Top">↑</button>
+
+<!-- ===== LOADING SPINNER ===== -->
+<div id="loadingSpinner">
+    <div class="spinner"></div>
+</div>
+
+<!-- ============================================= -->
+<!-- ===== SCRIPTS ===== -->
+<!-- ============================================= -->
+
+<!-- ===== MAIN JAVASCRIPT ===== -->
 <script>
-// ===== SHARE LINK FUNCTION =====
+// =============================================
+// 1. MOBILE MENU TOGGLE
+// =============================================
+function toggleMenu() {
+    const menu = document.querySelector('.nav-menu');
+    menu.classList.toggle('open');
+}
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-menu').classList.remove('open');
+    });
+});
+
+// =============================================
+// 2. SHARE LINK FUNCTION
+// =============================================
 function copyShareLink() {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
@@ -240,10 +406,225 @@ function copyShareLink() {
     });
 }
 
-// ===== MOBILE MENU TOGGLE =====
-function toggleMenu() {
-    document.querySelector('.nav-menu').classList.toggle('open');
+// =============================================
+// 3. BACK TO TOP
+// =============================================
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// Show/hide back to top button
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+});
+
+// =============================================
+// 4. GLOBAL SEARCH SYSTEM
+// =============================================
+const searchData = {
+    pdfs: [
+        { title: 'Number System', class: 'V', subject: 'Mathematics', chapter: 'Chapter 1', type: 'PDF', link: 'library.html?search=Number' },
+        { title: 'Plant Kingdom', class: 'V', subject: 'Science', chapter: 'Chapter 1', type: 'PDF', link: 'library.html?search=Plant' },
+        { title: 'Fractions & Decimals', class: 'VI', subject: 'Mathematics', chapter: 'Chapter 2', type: 'PDF', link: 'library.html?search=Fraction' },
+        { title: 'Parts of Speech', class: 'VI', subject: 'English', chapter: 'Chapter 1', type: 'PDF', link: 'library.html?search=Speech' },
+        { title: 'Heat & Temperature', class: 'VII', subject: 'Science', chapter: 'Chapter 3', type: 'PDF', link: 'library.html?search=Heat' },
+        { title: 'Ancient Civilizations', class: 'VII', subject: 'Social Studies', chapter: 'Chapter 1', type: 'PDF', link: 'library.html?search=Ancient' },
+        { title: 'Algebraic Expressions', class: 'VIII', subject: 'Mathematics', chapter: 'Chapter 4', type: 'PDF', link: 'library.html?search=Algebra' },
+        { title: 'Introduction to Computers', class: 'VIII', subject: 'Computer', chapter: 'Chapter 1', type: 'PDF', link: 'library.html?search=Computer' },
+        { title: 'Laws of Motion', class: 'IX', subject: 'Science', chapter: 'Chapter 5', type: 'PDF', link: 'library.html?search=Motion' },
+        { title: 'Coordinate Geometry', class: 'IX', subject: 'Mathematics', chapter: 'Chapter 6', type: 'PDF', link: 'library.html?search=Geometry' },
+        { title: 'Electricity & Circuits', class: 'X', subject: 'Science', chapter: 'Chapter 7', type: 'PDF', link: 'library.html?search=Electricity' },
+        { title: 'Essay Writing Skills', class: 'X', subject: 'English', chapter: 'Chapter 3', type: 'PDF', link: 'library.html?search=Essay' },
+        { title: 'Limits & Derivatives', class: 'XI', subject: 'Mathematics', chapter: 'Chapter 8', type: 'PDF', link: 'library.html?search=Limits' },
+        { title: 'Chemical Bonding', class: 'XI', subject: 'Science', chapter: 'Chapter 9', type: 'PDF', link: 'library.html?search=Chemical' },
+        { title: 'Integral Calculus', class: 'XII', subject: 'Mathematics', chapter: 'Chapter 10', type: 'PDF', link: 'library.html?search=Calculus' },
+        { title: 'Wave Optics', class: 'XII', subject: 'Science', chapter: 'Chapter 11', type: 'PDF', link: 'library.html?search=Wave' }
+    ],
+    videos: [
+        { title: 'Master Prepositions', class: 'V–XII', subject: 'Grammar', type: 'Video', link: 'videos.html#prepositions' },
+        { title: 'Transformation of Sentences', class: 'V–XII', subject: 'Grammar', type: 'Video', link: 'videos.html#transformation' }
+    ],
+    grammar: [
+        { title: 'Prepositions', class: 'V–XII', subject: 'Grammar', type: 'Topic', link: 'videos.html#prepositions' },
+        { title: 'Transformation of Sentences', class: 'V–XII', subject: 'Grammar', type: 'Topic', link: 'videos.html#transformation' }
+    ]
+};
+
+// ===== PERFORM SEARCH =====
+function performSearch(query) {
+    if (!query || query.length < 2) return [];
+    
+    const q = query.toLowerCase().trim();
+    const results = [];
+    
+    // Search PDFs
+    searchData.pdfs.forEach(item => {
+        const text = `${item.title} ${item.class} ${item.subject} ${item.chapter}`.toLowerCase();
+        if (text.includes(q)) {
+            results.push({ ...item, score: text.indexOf(q) });
+        }
+    });
+    
+    // Search Videos
+    searchData.videos.forEach(item => {
+        const text = `${item.title} ${item.class} ${item.subject}`.toLowerCase();
+        if (text.includes(q)) {
+            results.push({ ...item, score: text.indexOf(q) });
+        }
+    });
+    
+    // Search Grammar Topics
+    searchData.grammar.forEach(item => {
+        const text = `${item.title} ${item.class} ${item.subject}`.toLowerCase();
+        if (text.includes(q)) {
+            results.push({ ...item, score: text.indexOf(q) });
+        }
+    });
+    
+    // Sort by score (closer match = higher priority)
+    results.sort((a, b) => a.score - b.score);
+    return results;
+}
+
+// ===== RENDER SEARCH RESULTS =====
+function renderResults(results, query) {
+    const container = document.getElementById('searchResults');
+    
+    if (results.length === 0) {
+        container.innerHTML = `
+            <div style="padding:20px; text-align:center; color:#888;">
+                📭 No results found for "<strong>${query}</strong>"
+            </div>
+        `;
+        container.style.display = 'block';
+        return;
+    }
+    
+    let html = '';
+    const typeColors = {
+        'PDF': '#e94560',
+        'Video': '#ff6b6b',
+        'Topic': '#0f3460'
+    };
+    
+    results.forEach(r => {
+        const typeColor = typeColors[r.type] || '#666';
+        const highlight = r.title.replace(new RegExp(query, 'gi'), match => 
+            `<span class="result-highlight">${match}</span>`
+        );
+        html += `
+            <a href="${r.link}">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <span style="font-weight:bold;">${highlight}</span>
+                        <div style="font-size:12px; color:#888; margin-top:2px;">
+                            ${r.subject} • Class ${r.class} ${r.chapter ? '• '+r.chapter : ''}
+                        </div>
+                    </div>
+                    <span class="result-type" style="background:${typeColor};">${r.type}</span>
+                </div>
+            </a>
+        `;
+    });
+    
+    container.innerHTML = html;
+    container.style.display = 'block';
+}
+
+// ===== SEARCH INPUT HANDLER =====
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('globalSearchInput');
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (input) {
+        input.addEventListener('input', function() {
+            const query = this.value.trim();
+            if (query.length < 2) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            const results = performSearch(query);
+            renderResults(results, query);
+        });
+        
+        // Keyboard navigation
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                resultsContainer.style.display = 'none';
+                this.blur();
+            }
+        });
+        
+        // Close on click outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#globalSearchContainer')) {
+                resultsContainer.style.display = 'none';
+            }
+        });
+    }
+});
+
+// =============================================
+// 5. SCROLL ANIMATIONS
+// =============================================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.benefit-item, .class-grid-compact a').forEach(el => {
+    observer.observe(el);
+});
+
+// =============================================
+// 6. LOADING SPINNER
+// =============================================
+function showLoading() {
+    document.getElementById('loadingSpinner').style.display = 'flex';
+}
+
+function hideLoading() {
+    document.getElementById('loadingSpinner').style.display = 'none';
+}
+
+// Show spinner on navigation
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (this.href && !this.href.startsWith('#') && !this.href.startsWith('javascript:')) {
+            if (!this.target || this.target === '_self') {
+                showLoading();
+            }
+        }
+    });
+});
+
+// Hide spinner when page loads
+window.addEventListener('load', hideLoading);
+
+// =============================================
+// 7. SERVICE WORKER REGISTRATION
+// =============================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js')
+            .then(function(registration) {
+                console.log('📚 Bidyut: Service Worker registered!');
+            })
+            .catch(function(error) {
+                console.log('📚 Bidyut: Service Worker registration failed:', error);
+            });
+    });
+}
+
+console.log('📚 Bidyut: Website loaded successfully!');
 </script>
 
 </body>
